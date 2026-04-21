@@ -59,53 +59,23 @@ function disegnaGrafico(tempi, valori) {
                 label: 'Geometric Brownian motion',
                 data: valori,
                 borderColor: '#800000', // rosso scuro
-                borderWidth: 2,
+                borderWidth: 1.5,
                 pointRadius: 0,
                 fill: false,
-                tension: 0 // linea più "spezzata" come nel tuo grafico
+                tension: 0.1 // linea più "spezzata" come nel tuo grafico
             }]
         },
         options: {
             responsive: true,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#444',
-                        font: {
-                            size: 14
-                        }
-                    }
-                }
-            },
             scales: {
                 x: {
-                    title: {
-                        display: true,
-                        text: 'S(t)',
-                        color: '#555',
-                        font: { size: 14 }
-                    },
-                    grid: {
-                        color: 'rgba(0,0,0,0.1)'
-                    },
+                    title: { display: true, text: 'S(t)' },
                     ticks: {
-                        maxTicksLimit: 10,
-                        color: '#666'
+                        maxTicksLimit: 10 // Evita di affollare l'asse X
                     }
                 },
                 y: {
-                    title: {
-                        display: true,
-                        text: 'W(t)',
-                        color: '#555',
-                        font: { size: 14 }
-                    },
-                    grid: {
-                        color: 'rgba(0,0,0,0.1)'
-                    },
-                    ticks: {
-                        color: '#666'
-                    }
+                    title: { display: true, text: 'W(t)' }
                 }
             }
         }
