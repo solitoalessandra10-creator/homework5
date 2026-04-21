@@ -56,30 +56,61 @@ function disegnaGrafico(tempi, valori) {
         data: {
             labels: tempi,
             datasets: [{
-                label: 'GBM',
+                label: 'Geometric Brownian motion',
                 data: valori,
-                borderColor: '#0066cc',
-                borderWidth: 1.5,
+                borderColor: '#800000', // rosso scuro
+                borderWidth: 2,
                 pointRadius: 0,
                 fill: false,
-                tension: 0.1
+                tension: 0 // linea più "spezzata" come nel tuo grafico
             }]
         },
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#444',
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            },
             scales: {
                 x: {
-                    title: { display: true, text: 'Tempo (t)' },
-                    ticks: { maxTicksLimit: 10 }
+                    title: {
+                        display: true,
+                        text: 'S(t)',
+                        color: '#555',
+                        font: { size: 14 }
+                    },
+                    grid: {
+                        color: 'rgba(0,0,0,0.1)'
+                    },
+                    ticks: {
+                        maxTicksLimit: 10,
+                        color: '#666'
+                    }
                 },
                 y: {
-                    title: { display: true, text: 'S(t)' }
+                    title: {
+                        display: true,
+                        text: 'W(t)',
+                        color: '#555',
+                        font: { size: 14 }
+                    },
+                    grid: {
+                        color: 'rgba(0,0,0,0.1)'
+                    },
+                    ticks: {
+                        color: '#666'
+                    }
                 }
             }
         }
     });
 }
-
 function aggiornaStats(n, T, finale) {
     document.getElementById("stats").innerHTML = `
         <p><b>n:</b> ${n}</p>
